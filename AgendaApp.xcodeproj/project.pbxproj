@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		0BA5E85127CF93D00079A8DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E85027CF93D00079A8DC /* AppDelegate.swift */; };
 		0BA5E85327CF93D00079A8DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E85227CF93D00079A8DC /* SceneDelegate.swift */; };
-		0BA5E85527CF93D00079A8DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E85427CF93D00079A8DC /* ViewController.swift */; };
 		0BA5E85827CF93D00079A8DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA5E85627CF93D00079A8DC /* Main.storyboard */; };
 		0BA5E85A27CF93D10079A8DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA5E85927CF93D10079A8DC /* Assets.xcassets */; };
 		0BA5E85D27CF93D10079A8DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA5E85B27CF93D10079A8DC /* LaunchScreen.storyboard */; };
 		0BA5E86827CF93D10079A8DC /* AgendaAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E86727CF93D10079A8DC /* AgendaAppTests.swift */; };
 		0BA5E87227CF93D10079A8DC /* AgendaAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E87127CF93D10079A8DC /* AgendaAppUITests.swift */; };
 		0BA5E87427CF93D10079A8DC /* AgendaAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E87327CF93D10079A8DC /* AgendaAppUITestsLaunchTests.swift */; };
+		0BA5E88327CF96440079A8DC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E88227CF96440079A8DC /* SettingsViewController.swift */; };
+		0BA5E88527CF978E0079A8DC /* AgendaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E88427CF978E0079A8DC /* AgendaTableViewController.swift */; };
+		0BA5E88727CF9A600079A8DC /* CreateContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E88627CF9A600079A8DC /* CreateContactViewController.swift */; };
+		0BA5E88927CF9A850079A8DC /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E88827CF9A850079A8DC /* ContactDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,6 @@
 		0BA5E84D27CF93D00079A8DC /* AgendaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgendaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA5E85027CF93D00079A8DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA5E85227CF93D00079A8DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0BA5E85427CF93D00079A8DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0BA5E85727CF93D00079A8DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0BA5E85927CF93D10079A8DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BA5E85C27CF93D10079A8DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		0BA5E86D27CF93D10079A8DC /* AgendaAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AgendaAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA5E87127CF93D10079A8DC /* AgendaAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaAppUITests.swift; sourceTree = "<group>"; };
 		0BA5E87327CF93D10079A8DC /* AgendaAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0BA5E88227CF96440079A8DC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0BA5E88427CF978E0079A8DC /* AgendaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTableViewController.swift; sourceTree = "<group>"; };
+		0BA5E88627CF9A600079A8DC /* CreateContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactViewController.swift; sourceTree = "<group>"; };
+		0BA5E88827CF9A850079A8DC /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +107,14 @@
 			children = (
 				0BA5E85027CF93D00079A8DC /* AppDelegate.swift */,
 				0BA5E85227CF93D00079A8DC /* SceneDelegate.swift */,
-				0BA5E85427CF93D00079A8DC /* ViewController.swift */,
 				0BA5E85627CF93D00079A8DC /* Main.storyboard */,
 				0BA5E85927CF93D10079A8DC /* Assets.xcassets */,
 				0BA5E85B27CF93D10079A8DC /* LaunchScreen.storyboard */,
 				0BA5E85E27CF93D10079A8DC /* Info.plist */,
+				0BA5E88227CF96440079A8DC /* SettingsViewController.swift */,
+				0BA5E88427CF978E0079A8DC /* AgendaTableViewController.swift */,
+				0BA5E88627CF9A600079A8DC /* CreateContactViewController.swift */,
+				0BA5E88827CF9A850079A8DC /* ContactDetailsViewController.swift */,
 			);
 			path = AgendaApp;
 			sourceTree = "<group>";
@@ -258,9 +267,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BA5E85527CF93D00079A8DC /* ViewController.swift in Sources */,
+				0BA5E88527CF978E0079A8DC /* AgendaTableViewController.swift in Sources */,
 				0BA5E85127CF93D00079A8DC /* AppDelegate.swift in Sources */,
+				0BA5E88927CF9A850079A8DC /* ContactDetailsViewController.swift in Sources */,
+				0BA5E88727CF9A600079A8DC /* CreateContactViewController.swift in Sources */,
 				0BA5E85327CF93D00079A8DC /* SceneDelegate.swift in Sources */,
+				0BA5E88327CF96440079A8DC /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
