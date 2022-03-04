@@ -19,6 +19,8 @@
 		0BA5E88527CF978E0079A8DC /* AgendaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E88427CF978E0079A8DC /* AgendaTableViewController.swift */; };
 		0BA5E88727CF9A600079A8DC /* CreateContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E88627CF9A600079A8DC /* CreateContactViewController.swift */; };
 		0BA5E88927CF9A850079A8DC /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E88827CF9A850079A8DC /* ContactDetailsViewController.swift */; };
+		0BA5E88B27CFE96C0079A8DC /* CeldaAgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E88A27CFE96C0079A8DC /* CeldaAgendaTableViewCell.swift */; };
+		0BA5E88D27CFEAF10079A8DC /* Datos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E88C27CFEAF10079A8DC /* Datos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		0BA5E88427CF978E0079A8DC /* AgendaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTableViewController.swift; sourceTree = "<group>"; };
 		0BA5E88627CF9A600079A8DC /* CreateContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactViewController.swift; sourceTree = "<group>"; };
 		0BA5E88827CF9A850079A8DC /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
+		0BA5E88A27CFE96C0079A8DC /* CeldaAgendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeldaAgendaTableViewCell.swift; sourceTree = "<group>"; };
+		0BA5E88C27CFEAF10079A8DC /* Datos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 				0BA5E88427CF978E0079A8DC /* AgendaTableViewController.swift */,
 				0BA5E88627CF9A600079A8DC /* CreateContactViewController.swift */,
 				0BA5E88827CF9A850079A8DC /* ContactDetailsViewController.swift */,
+				0BA5E88A27CFE96C0079A8DC /* CeldaAgendaTableViewCell.swift */,
+				0BA5E88C27CFEAF10079A8DC /* Datos.swift */,
 			);
 			path = AgendaApp;
 			sourceTree = "<group>";
@@ -268,9 +274,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BA5E88527CF978E0079A8DC /* AgendaTableViewController.swift in Sources */,
+				0BA5E88D27CFEAF10079A8DC /* Datos.swift in Sources */,
 				0BA5E85127CF93D00079A8DC /* AppDelegate.swift in Sources */,
 				0BA5E88927CF9A850079A8DC /* ContactDetailsViewController.swift in Sources */,
 				0BA5E88727CF9A600079A8DC /* CreateContactViewController.swift in Sources */,
+				0BA5E88B27CFE96C0079A8DC /* CeldaAgendaTableViewCell.swift in Sources */,
 				0BA5E85327CF93D00079A8DC /* SceneDelegate.swift in Sources */,
 				0BA5E88327CF96440079A8DC /* SettingsViewController.swift in Sources */,
 			);
@@ -451,6 +459,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F23PU4XZ8K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AgendaApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -478,6 +487,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F23PU4XZ8K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AgendaApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

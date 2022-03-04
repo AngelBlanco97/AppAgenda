@@ -8,38 +8,129 @@
 import UIKit
 
 class AgendaTableViewController: UITableViewController {
+    
+    //MARK: OUTLETS
+    @IBOutlet var miTabla: UITableView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak var btn_Add: UIBarButtonItem!
+    
+    
+    
+    //MARK: VARIABLES
+    private var arrayFamilia: [Contacto] = []
+    private var arrayTrabajo: [Contacto] = []
+    private var arrayAmigos: [Contacto] = []
+    private var userDefault = UserDefaults.standard
+    private var tablaActual = 0
+    // 0 = FAMILIA, 1 = TRABAJO, 2 = AMIGOS
 
+    
+    //MARK: VIEWLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        recogidaInformacion()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        recogidaInformacion()
+        miTabla.reloadData()
+        
+    }
+    
+    
+    
+    //MARK: CARGA DATOS
+    
+    private func recogidaInformacion() {
+        if let data = userDefault.object(forKey: "Agenda") as? Data {
+            arrayAmigos.removeAll()
+            arrayTrabajo.removeAll()
+            arrayFamilia.removeAll()
+            
+            let decoder = JSONDecoder()
+            if let personas = try? decoder.decode([Contacto].self, from: data) {
+                
+                for persona in personas {
+
+                    if (persona.contacto == "Familia") {
+                        arrayFamilia.append(persona)
+                    }
+                    
+                    if (persona.contacto == "Trabajo") {
+                        arrayTrabajo.append(persona)
+                    }
+                    
+                    if (persona.contacto == "Amigos") {
+                        arrayAmigos.append(persona)
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    
+    @IBAction func cambiaSegmento(_ sender: Any) {
+        self.miTabla.reloadData()
+    }
+    
+    
 
     // MARK: - Table view data source
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        let segment = self.segmentControl.selectedSegmentIndex
+        switch segment {
+        case 0:
+            return arrayFamilia.count
+        case 1:
+            return arrayTrabajo.count
+        case 2:
+            return arrayAmigos.count
+        default:
+            return 2
+        }
+        
+        
     }
+    
+    
+   
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let indexSelected = self.segmentControl.selectedSegmentIndex
+        let cell = miTabla.dequeueReusableCell(withIdentifier: "celda") as! CeldaAgendaTableViewCell
+        switch indexSelected {
+        case 0:
+            cell.nombreCompleto.text = String(arrayFamilia[indexPath.row].nombre)
+            cell.telefono.text = String(arrayFamilia[indexPath.row].telefono)
+        case 1:
+            cell.nombreCompleto.text = String(arrayTrabajo[indexPath.row].nombre)
+            cell.telefono.text = String(arrayTrabajo[indexPath.row].telefono)
+        case 2:
+            cell.nombreCompleto.text = String(arrayAmigos[indexPath.row].nombre)
+            cell.telefono.text = String(arrayAmigos[indexPath.row].telefono)
+        default:
+            return UITableViewCell()
+        }
+        
+        
+        
+        
+        
+        
 
-        // Configure the cell...
+        
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
