@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+//Estructura de datos de un contacto.
 struct Contacto: Codable {
     let foto: String
     let nombre: String

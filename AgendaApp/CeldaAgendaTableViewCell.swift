@@ -14,6 +14,7 @@ class CeldaAgendaTableViewCell: UITableViewCell {
         // Initialization code
     }
     
+    //MARK: OUTLETS
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var telefono: UILabel!
     @IBOutlet weak var nombreCompleto: UILabel!

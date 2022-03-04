@@ -42,14 +42,22 @@ class AgendaTableViewController: UITableViewController {
     //MARK: CARGA DATOS
     
     private func recogidaInformacion() {
+        
+        // Recogemos los valores que hay en la agenda por medio de userdefault
+        
         if let data = userDefault.object(forKey: "Agenda") as? Data {
+            // Vaciamos los array previamente para evitar duplicidad de datos.
             arrayAmigos.removeAll()
             arrayTrabajo.removeAll()
             arrayFamilia.removeAll()
             
+            
+            //Decodificamos los datos a un tipologia de dato [contacto]
             let decoder = JSONDecoder()
             if let personas = try? decoder.decode([Contacto].self, from: data) {
                 
+                
+                //Recorremos la cantidad de contactos que tiene, vamos rellenando los arrays por tipo de contacto
                 for persona in personas {
 
                     if (persona.contacto == "Familia") {
@@ -71,6 +79,7 @@ class AgendaTableViewController: UITableViewController {
     
     
     @IBAction func cambiaSegmento(_ sender: Any) {
+        // Llamamos al reload cada vez que el valor del segmentcontrol cambia para recargar la informacion.
         self.miTabla.reloadData()
     }
     
@@ -85,6 +94,7 @@ class AgendaTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Según el segment control en el que este, queremos que tome los valores de fila segun el array propio del segmentcontrol
         let segment = self.segmentControl.selectedSegmentIndex
         switch segment {
         case 0:
@@ -94,7 +104,7 @@ class AgendaTableViewController: UITableViewController {
         case 2:
             return arrayAmigos.count
         default:
-            return 2
+            return 0
         }
         
         
@@ -105,6 +115,7 @@ class AgendaTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Segun el segment control en el que este, rellenamos los valores segun el el propio array que lo carga.
         let indexSelected = self.segmentControl.selectedSegmentIndex
         let cell = miTabla.dequeueReusableCell(withIdentifier: "celda") as! CeldaAgendaTableViewCell
         switch indexSelected {
@@ -121,60 +132,8 @@ class AgendaTableViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        
-        
-        
-        
-        
-
-        
-
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
