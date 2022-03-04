@@ -98,7 +98,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="btn_Add" destination="Iw8-wU-Bc1" id="0J6-ly-6NP"/>
-                        <outlet property="miTabla" destination="K4F-pr-Xcj" id="pfD-IJ-Jwn"/>
+                        <outlet property="miTabla" destination="K4F-pr-Xcj" id="2oG-on-2aj"/>
                         <outlet property="segmentControl" destination="nRj-L8-ywI" id="t90-zo-5A8"/>
                     </connections>
                 </tableViewController>

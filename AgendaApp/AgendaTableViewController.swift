@@ -22,6 +22,8 @@ class AgendaTableViewController: UITableViewController {
     private var arrayAmigos: [Contacto] = []
     private var userDefault = UserDefaults.standard
     private var tablaActual = 0
+    
+    
     // 0 = FAMILIA, 1 = TRABAJO, 2 = AMIGOS
 
     
@@ -39,7 +41,7 @@ class AgendaTableViewController: UITableViewController {
     
     
     
-    //MARK: CARGA DATOS
+    //MARK: DATOS
     
     private func recogidaInformacion() {
         
@@ -77,7 +79,23 @@ class AgendaTableViewController: UITableViewController {
         }
     }
     
+    private func setNewAgenda() {
+        //Creamos un array con los diferentes tipos actualizados
+        let contactos: [Contacto] = arrayFamilia + arrayAmigos + arrayTrabajo
+        
+        //Codificamos el array y lo volvemos a guardar en userdefault con los cambios nuevos implementados.
+        let encoder = JSONEncoder()
+        if let data = try? encoder.encode(contactos) {
+            userDefault.set(data, forKey: "Agenda")
+        }
+
+        
+    }
     
+    
+    
+    
+    // MARK: SEGMENT CONTROL
     @IBAction func cambiaSegmento(_ sender: Any) {
         // Llamamos al reload cada vez que el valor del segmentcontrol cambia para recargar la informacion.
         self.miTabla.reloadData()
@@ -135,5 +153,70 @@ class AgendaTableViewController: UITableViewController {
         return cell
     }
 
-
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        // Creamos una accion de borrado
+        let deleteRow  = UIContextualAction(style: .normal, title: "Borrar") {(action, view, completion) in completion(true)
+        
+            // Creamos el alert de borrado que determinara si quiere realizar la accion en concreto. Si cancela no se realiza, si acepta, se elimina.
+            let deleteAlert = UIAlertController(title: "Borrar contacto", message: "¿Estas seguro de eliminar este contacto?", preferredStyle: .alert)
+            deleteAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+            deleteAlert.addAction(UIAlertAction(title: "Confirmar", style: .destructive, handler: { action in
+            
+                // Dependiendo del segmento de control en el que este, eliminamos la celda de su array concreto, y persistimos los datos en userdefaults 
+                let segmentSelected = self.segmentControl.selectedSegmentIndex
+                switch segmentSelected {
+                case 0:
+                    self.arrayFamilia.remove(at: indexPath.row)
+                    self.miTabla.deleteRows(at: [indexPath], with: .fade)
+                    self.setNewAgenda()
+                    self.showAlertDelete()
+                case 1:
+                    self.arrayTrabajo.remove(at: indexPath.row)
+                    self.miTabla.deleteRows(at: [indexPath], with: .fade)
+                    self.setNewAgenda()
+                    self.showAlertDelete()
+                case 2:
+                    self.arrayAmigos.remove(at: indexPath.row)
+                    self.miTabla.deleteRows(at: [indexPath], with: .fade)
+                    self.setNewAgenda()
+                    self.showAlertDelete()
+                default:
+                    self.showAlertProblem()
+                }
+            
+            }))
+            
+            //Presentamos la alerta de borrado
+            self.present(deleteAlert,animated: true,completion: nil)
+            
+        }
+        
+        //Ponemos estilo a la accion de borrado y lo ponemos como una configuracion del movimiento
+        deleteRow.backgroundColor = UIColor(ciColor: .red)
+        deleteRow.image = UIImage(systemName: "trash")
+        let config = UISwipeActionsConfiguration(actions: [deleteRow])
+        config.performsFirstActionWithFullSwipe = true
+        return config
+    }
+    
+    
+    //Function para presentar una alerta en caso de error o por defecto
+    func showAlertProblem() {
+        let alert = UIAlertController(title: "ERROR", message: "No se ha podido eliminar el contacto. Por favor, inténtelo de nuevo.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    // Funcion para presentar una alerta en caso de hacer el eliminado correctamente
+    func showAlertDelete() {
+        let alert = UIAlertController(title: "Contacto eliminado", message: "El contacto ha sido eliminado satisfactoriamente.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                present(alert, animated: true, completion: nil)
+        
+    }
+    
 }
