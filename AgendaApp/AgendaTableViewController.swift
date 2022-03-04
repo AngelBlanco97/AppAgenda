@@ -138,14 +138,20 @@ class AgendaTableViewController: UITableViewController {
         let cell = miTabla.dequeueReusableCell(withIdentifier: "celda") as! CeldaAgendaTableViewCell
         switch indexSelected {
         case 0:
+            cell.img.image = UIImage(systemName: "person")
             cell.nombreCompleto.text = String(arrayFamilia[indexPath.row].nombre)
             cell.telefono.text = String(arrayFamilia[indexPath.row].telefono)
+            cell.apellido.text = String(arrayFamilia[indexPath.row].apellidos)
         case 1:
+            cell.img.image = UIImage(systemName: "person")
             cell.nombreCompleto.text = String(arrayTrabajo[indexPath.row].nombre)
             cell.telefono.text = String(arrayTrabajo[indexPath.row].telefono)
+            cell.apellido.text = String(arrayTrabajo[indexPath.row].apellidos)
         case 2:
+            cell.img.image = UIImage(systemName: "person")
             cell.nombreCompleto.text = String(arrayAmigos[indexPath.row].nombre)
             cell.telefono.text = String(arrayAmigos[indexPath.row].telefono)
+            cell.apellido.text = String(arrayAmigos[indexPath.row].apellidos)
         default:
             return UITableViewCell()
         }
@@ -153,6 +159,10 @@ class AgendaTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
@@ -164,7 +174,7 @@ class AgendaTableViewController: UITableViewController {
             deleteAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
             deleteAlert.addAction(UIAlertAction(title: "Confirmar", style: .destructive, handler: { action in
             
-                // Dependiendo del segmento de control en el que este, eliminamos la celda de su array concreto, y persistimos los datos en userdefaults 
+                // Dependiendo del segmento de control en el que este, eliminamos la celda de su array concreto, y persistimos los datos en userdefaults
                 let segmentSelected = self.segmentControl.selectedSegmentIndex
                 switch segmentSelected {
                 case 0:

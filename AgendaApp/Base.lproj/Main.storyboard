@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="nRj-L8-ywI">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.47843137254901963" blue="1" alpha="0.46388658940397359" colorSpace="custom" customColorSpace="sRGB"/>
                             <segments>
@@ -50,34 +50,55 @@
                             </connections>
                         </segmentedControl>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="celda" id="bDH-4g-SIx" customClass="CeldaAgendaTableViewCell" customModule="AgendaApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="75.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="celda" rowHeight="74" id="bDH-4g-SIx" customClass="CeldaAgendaTableViewCell" customModule="AgendaApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="76.5" width="414" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bDH-4g-SIx" id="S5P-2s-xoL">
-                                    <rect key="frame" x="0.0" y="0.0" width="385.5" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="385.5" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fxS-8G-Ppf">
-                                            <rect key="frame" x="20" y="0.0" width="73" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGK-db-zYe">
+                                            <rect key="frame" x="73" y="10" width="61.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apellido" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCy-sJ-wms">
+                                            <rect key="frame" x="137.5" y="9" width="61.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefono" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdo-ut-Xmw">
+                                            <rect key="frame" x="73" y="34" width="55.5" height="17"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fxS-8G-Ppf">
+                                            <rect key="frame" x="20" y="16" width="45" height="42"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="3pK-Ca-SI2"/>
+                                                <constraint firstAttribute="height" constant="42" id="K7P-Sv-whH"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="TX7-ws-3Pj"/>
+                                                <constraint firstAttribute="width" constant="45" id="ZP3-xX-ChV"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGK-db-zYe">
-                                            <rect key="frame" x="101" y="11" width="132" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdo-ut-Xmw">
-                                            <rect key="frame" x="241" y="11" width="145" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="qdo-ut-Xmw" firstAttribute="leading" secondItem="fxS-8G-Ppf" secondAttribute="trailing" constant="8" symbolic="YES" id="Eyh-zl-TUR"/>
+                                        <constraint firstItem="fxS-8G-Ppf" firstAttribute="leading" secondItem="S5P-2s-xoL" secondAttribute="leadingMargin" id="Fti-Ap-L5n"/>
+                                        <constraint firstItem="qdo-ut-Xmw" firstAttribute="top" secondItem="vGK-db-zYe" secondAttribute="bottom" constant="3" id="HDu-1k-xRz"/>
+                                        <constraint firstItem="fxS-8G-Ppf" firstAttribute="top" secondItem="S5P-2s-xoL" secondAttribute="topMargin" constant="5" id="HrE-4s-1xi"/>
+                                        <constraint firstItem="vGK-db-zYe" firstAttribute="leading" secondItem="fxS-8G-Ppf" secondAttribute="trailing" constant="8" id="LUR-E0-d1F"/>
+                                        <constraint firstItem="gCy-sJ-wms" firstAttribute="leading" secondItem="vGK-db-zYe" secondAttribute="trailing" constant="3" id="Vy8-qN-vAd"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="fxS-8G-Ppf" secondAttribute="bottom" constant="5" id="Zu6-8t-mwW"/>
+                                        <constraint firstItem="vGK-db-zYe" firstAttribute="top" secondItem="S5P-2s-xoL" secondAttribute="top" constant="10" id="dxj-HH-RTD"/>
+                                        <constraint firstItem="gCy-sJ-wms" firstAttribute="top" secondItem="S5P-2s-xoL" secondAttribute="top" constant="9" id="gfZ-wU-60A"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="apellido" destination="gCy-sJ-wms" id="NIw-Ir-Qfp"/>
                                     <outlet property="img" destination="fxS-8G-Ppf" id="xMp-V3-YON"/>
                                     <outlet property="nombreCompleto" destination="vGK-db-zYe" id="fOP-MT-dAZ"/>
                                     <outlet property="telefono" destination="qdo-ut-Xmw" id="65z-Ns-EIe"/>

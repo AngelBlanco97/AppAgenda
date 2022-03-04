@@ -18,6 +18,7 @@ class CeldaAgendaTableViewCell: UITableViewCell {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var telefono: UILabel!
     @IBOutlet weak var nombreCompleto: UILabel!
+    @IBOutlet weak var apellido: UILabel!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
