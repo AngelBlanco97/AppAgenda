@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B87EEE127D4E33F007D44E3 /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87EEE027D4E33F007D44E3 /* EditContactViewController.swift */; };
 		0BA5E85127CF93D00079A8DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E85027CF93D00079A8DC /* AppDelegate.swift */; };
 		0BA5E85327CF93D00079A8DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E85227CF93D00079A8DC /* SceneDelegate.swift */; };
 		0BA5E85827CF93D00079A8DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA5E85627CF93D00079A8DC /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B87EEE027D4E33F007D44E3 /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
 		0BA5E84D27CF93D00079A8DC /* AgendaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgendaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA5E85027CF93D00079A8DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA5E85227CF93D00079A8DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				0BA5E85027CF93D00079A8DC /* AppDelegate.swift */,
 				0BA5E85227CF93D00079A8DC /* SceneDelegate.swift */,
 				0BA5E85627CF93D00079A8DC /* Main.storyboard */,
+				0B87EEE027D4E33F007D44E3 /* EditContactViewController.swift */,
 				0BA5E85927CF93D10079A8DC /* Assets.xcassets */,
 				0BA5E85B27CF93D10079A8DC /* LaunchScreen.storyboard */,
 				0BA5E85E27CF93D10079A8DC /* Info.plist */,
@@ -278,6 +281,7 @@
 				0BA5E85127CF93D00079A8DC /* AppDelegate.swift in Sources */,
 				0BA5E88927CF9A850079A8DC /* ContactDetailsViewController.swift in Sources */,
 				0BA5E88727CF9A600079A8DC /* CreateContactViewController.swift in Sources */,
+				0B87EEE127D4E33F007D44E3 /* EditContactViewController.swift in Sources */,
 				0BA5E88B27CFE96C0079A8DC /* CeldaAgendaTableViewCell.swift in Sources */,
 				0BA5E85327CF93D00079A8DC /* SceneDelegate.swift in Sources */,
 				0BA5E88327CF96440079A8DC /* SettingsViewController.swift in Sources */,

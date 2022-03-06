@@ -214,7 +214,7 @@ class AgendaTableViewController: UITableViewController {
     
     //Function para presentar una alerta en caso de error o por defecto
     func showAlertProblem() {
-        let alert = UIAlertController(title: "ERROR", message: "No se ha podido eliminar el contacto. Por favor, inténtelo de nuevo.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "ERROR", message: "No se ha podido realizar la acción. Por favor, inténtelo de nuevo.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 present(alert, animated: true, completion: nil)
         
@@ -227,6 +227,44 @@ class AgendaTableViewController: UITableViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 present(alert, animated: true, completion: nil)
         
+    }
+    
+    
+    // Segue para pasar los datos a una nueva view para acceder a los detalles del contacto
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "detailContact") {
+            
+            let segmentControl = segmentControl.selectedSegmentIndex
+            guard let row = miTabla.indexPathForSelectedRow?.row else {return}
+            let detailView = segue.destination as! ContactDetailsViewController
+            
+            
+            switch segmentControl {
+            case 0:
+                let person = arrayFamilia[row]
+                detailView.imagen = person.foto
+                detailView.id = 0
+                detailView.idPerson = row
+            case 1:
+                let person = arrayTrabajo[row]
+                detailView.imagen = person.foto
+                detailView.id = 1
+                detailView.idPerson = row
+            case 2:
+                let person = arrayAmigos[row]
+                detailView.imagen = person.foto
+                detailView.id = 2
+                detailView.idPerson = row
+            default:
+                self.showAlertProblem()
+            }
+            
+            
+            
+            
+        }
     }
     
 }

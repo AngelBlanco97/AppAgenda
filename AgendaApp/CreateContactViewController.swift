@@ -12,12 +12,34 @@ class CreateContactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cargaDatos()
+        
+        contactType.delegate = self
+        contactType.dataSource = self
+        txt_Contacto.inputView = contactType
+        
+        
+        let fechaNacimiento = UIDatePicker()
+        fechaNacimiento.datePickerMode = .date
+        fechaNacimiento.addTarget(self,action: #selector(nacimientoDateChange(datePicker:)), for: UIControl.Event.valueChanged)
+        fechaNacimiento.frame.size = CGSize(width: 0, height: 300)
+        fechaNacimiento.preferredDatePickerStyle = .wheels
+        txt_FechaNacimiento.inputView = fechaNacimiento
+        txt_FechaNacimiento.text = formatDate(date: Date())
+        
+        
+        
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    
     
     //MARK: VARIABLES
     private var userDefault = UserDefaults.standard
     private var Agenda: [Contacto] = []
+    let typeContact = ["Familia", "Trabajo", "Amigos"]
+    let contactType = UIPickerView()
     
     
     //MARK: OUTLETS
@@ -40,6 +62,16 @@ class CreateContactViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc func nacimientoDateChange(datePicker: UIDatePicker) {
+        txt_FechaNacimiento.text = formatDate(date: datePicker.date)
+    }
+    
+    func formatDate(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM yyyy"
+        return formatter.string(from: date)
     }
     
     
@@ -81,4 +113,24 @@ class CreateContactViewController: UIViewController {
     }
     */
 
+}
+
+//Extendemos el controlador para delegar el picker y la informacion del mismo
+extension CreateContactViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return typeContact.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return typeContact[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        txt_Contacto.text = typeContact[row]
+        txt_Contacto.resignFirstResponder()
+    }
 }
