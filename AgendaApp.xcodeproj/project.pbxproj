@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0B87EEE127D4E33F007D44E3 /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87EEE027D4E33F007D44E3 /* EditContactViewController.swift */; };
+		0B87EEE927D527FE007D44E3 /* SizeListadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87EEE827D527FE007D44E3 /* SizeListadoViewController.swift */; };
+		0B87EEEB27D52CE6007D44E3 /* SizeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87EEEA27D52CE6007D44E3 /* SizeDetailViewController.swift */; };
+		0B87EEED27D52CF5007D44E3 /* ColorLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87EEEC27D52CF5007D44E3 /* ColorLetterViewController.swift */; };
+		0B87EEEF27D52D04007D44E3 /* LetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87EEEE27D52D04007D44E3 /* LetterViewController.swift */; };
+		0B87EEF127D52D11007D44E3 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87EEF027D52D11007D44E3 /* ThemeViewController.swift */; };
+		0B87EEF327D543DD007D44E3 /* CeldaAjustesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87EEF227D543DD007D44E3 /* CeldaAjustesTableViewCell.swift */; };
+		0B87EEF527D54883007D44E3 /* Secciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87EEF427D54883007D44E3 /* Secciones.swift */; };
+		0B87EEF727D548F2007D44E3 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87EEF627D548F2007D44E3 /* DataModel.swift */; };
+		0B87EEF927D54C91007D44E3 /* AjustesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87EEF827D54C91007D44E3 /* AjustesTableViewController.swift */; };
+		0B87EEFB27D54EFC007D44E3 /* Objetos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87EEFA27D54EFC007D44E3 /* Objetos.swift */; };
 		0BA5E85127CF93D00079A8DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E85027CF93D00079A8DC /* AppDelegate.swift */; };
 		0BA5E85327CF93D00079A8DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E85227CF93D00079A8DC /* SceneDelegate.swift */; };
 		0BA5E85827CF93D00079A8DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA5E85627CF93D00079A8DC /* Main.storyboard */; };
@@ -16,7 +26,6 @@
 		0BA5E86827CF93D10079A8DC /* AgendaAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E86727CF93D10079A8DC /* AgendaAppTests.swift */; };
 		0BA5E87227CF93D10079A8DC /* AgendaAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E87127CF93D10079A8DC /* AgendaAppUITests.swift */; };
 		0BA5E87427CF93D10079A8DC /* AgendaAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E87327CF93D10079A8DC /* AgendaAppUITestsLaunchTests.swift */; };
-		0BA5E88327CF96440079A8DC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E88227CF96440079A8DC /* SettingsViewController.swift */; };
 		0BA5E88527CF978E0079A8DC /* AgendaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E88427CF978E0079A8DC /* AgendaTableViewController.swift */; };
 		0BA5E88727CF9A600079A8DC /* CreateContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E88627CF9A600079A8DC /* CreateContactViewController.swift */; };
 		0BA5E88927CF9A850079A8DC /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5E88827CF9A850079A8DC /* ContactDetailsViewController.swift */; };
@@ -43,6 +52,16 @@
 
 /* Begin PBXFileReference section */
 		0B87EEE027D4E33F007D44E3 /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
+		0B87EEE827D527FE007D44E3 /* SizeListadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeListadoViewController.swift; sourceTree = "<group>"; };
+		0B87EEEA27D52CE6007D44E3 /* SizeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeDetailViewController.swift; sourceTree = "<group>"; };
+		0B87EEEC27D52CF5007D44E3 /* ColorLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorLetterViewController.swift; sourceTree = "<group>"; };
+		0B87EEEE27D52D04007D44E3 /* LetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterViewController.swift; sourceTree = "<group>"; };
+		0B87EEF027D52D11007D44E3 /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
+		0B87EEF227D543DD007D44E3 /* CeldaAjustesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeldaAjustesTableViewCell.swift; sourceTree = "<group>"; };
+		0B87EEF427D54883007D44E3 /* Secciones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secciones.swift; sourceTree = "<group>"; };
+		0B87EEF627D548F2007D44E3 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		0B87EEF827D54C91007D44E3 /* AjustesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjustesTableViewController.swift; sourceTree = "<group>"; };
+		0B87EEFA27D54EFC007D44E3 /* Objetos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objetos.swift; sourceTree = "<group>"; };
 		0BA5E84D27CF93D00079A8DC /* AgendaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgendaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA5E85027CF93D00079A8DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA5E85227CF93D00079A8DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +74,6 @@
 		0BA5E86D27CF93D10079A8DC /* AgendaAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AgendaAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA5E87127CF93D10079A8DC /* AgendaAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaAppUITests.swift; sourceTree = "<group>"; };
 		0BA5E87327CF93D10079A8DC /* AgendaAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		0BA5E88227CF96440079A8DC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0BA5E88427CF978E0079A8DC /* AgendaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTableViewController.swift; sourceTree = "<group>"; };
 		0BA5E88627CF9A600079A8DC /* CreateContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactViewController.swift; sourceTree = "<group>"; };
 		0BA5E88827CF9A850079A8DC /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
@@ -114,16 +132,25 @@
 				0BA5E85027CF93D00079A8DC /* AppDelegate.swift */,
 				0BA5E85227CF93D00079A8DC /* SceneDelegate.swift */,
 				0BA5E85627CF93D00079A8DC /* Main.storyboard */,
+				0B87EEF827D54C91007D44E3 /* AjustesTableViewController.swift */,
+				0B87EEE827D527FE007D44E3 /* SizeListadoViewController.swift */,
+				0B87EEF227D543DD007D44E3 /* CeldaAjustesTableViewCell.swift */,
+				0B87EEF427D54883007D44E3 /* Secciones.swift */,
+				0B87EEFA27D54EFC007D44E3 /* Objetos.swift */,
+				0B87EEF627D548F2007D44E3 /* DataModel.swift */,
 				0B87EEE027D4E33F007D44E3 /* EditContactViewController.swift */,
 				0BA5E85927CF93D10079A8DC /* Assets.xcassets */,
 				0BA5E85B27CF93D10079A8DC /* LaunchScreen.storyboard */,
 				0BA5E85E27CF93D10079A8DC /* Info.plist */,
-				0BA5E88227CF96440079A8DC /* SettingsViewController.swift */,
 				0BA5E88427CF978E0079A8DC /* AgendaTableViewController.swift */,
 				0BA5E88627CF9A600079A8DC /* CreateContactViewController.swift */,
 				0BA5E88827CF9A850079A8DC /* ContactDetailsViewController.swift */,
 				0BA5E88A27CFE96C0079A8DC /* CeldaAgendaTableViewCell.swift */,
 				0BA5E88C27CFEAF10079A8DC /* Datos.swift */,
+				0B87EEEA27D52CE6007D44E3 /* SizeDetailViewController.swift */,
+				0B87EEEC27D52CF5007D44E3 /* ColorLetterViewController.swift */,
+				0B87EEEE27D52D04007D44E3 /* LetterViewController.swift */,
+				0B87EEF027D52D11007D44E3 /* ThemeViewController.swift */,
 			);
 			path = AgendaApp;
 			sourceTree = "<group>";
@@ -276,15 +303,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B87EEFB27D54EFC007D44E3 /* Objetos.swift in Sources */,
+				0B87EEF127D52D11007D44E3 /* ThemeViewController.swift in Sources */,
 				0BA5E88527CF978E0079A8DC /* AgendaTableViewController.swift in Sources */,
 				0BA5E88D27CFEAF10079A8DC /* Datos.swift in Sources */,
 				0BA5E85127CF93D00079A8DC /* AppDelegate.swift in Sources */,
+				0B87EEF327D543DD007D44E3 /* CeldaAjustesTableViewCell.swift in Sources */,
+				0B87EEE927D527FE007D44E3 /* SizeListadoViewController.swift in Sources */,
+				0B87EEF527D54883007D44E3 /* Secciones.swift in Sources */,
 				0BA5E88927CF9A850079A8DC /* ContactDetailsViewController.swift in Sources */,
+				0B87EEEB27D52CE6007D44E3 /* SizeDetailViewController.swift in Sources */,
 				0BA5E88727CF9A600079A8DC /* CreateContactViewController.swift in Sources */,
 				0B87EEE127D4E33F007D44E3 /* EditContactViewController.swift in Sources */,
 				0BA5E88B27CFE96C0079A8DC /* CeldaAgendaTableViewCell.swift in Sources */,
+				0B87EEED27D52CF5007D44E3 /* ColorLetterViewController.swift in Sources */,
 				0BA5E85327CF93D00079A8DC /* SceneDelegate.swift in Sources */,
-				0BA5E88327CF96440079A8DC /* SettingsViewController.swift in Sources */,
+				0B87EEF727D548F2007D44E3 /* DataModel.swift in Sources */,
+				0B87EEEF27D52D04007D44E3 /* LetterViewController.swift in Sources */,
+				0B87EEF927D54C91007D44E3 /* AjustesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

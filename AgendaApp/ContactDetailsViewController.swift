@@ -11,12 +11,14 @@ class ContactDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setFontSize()
         recogidaInformacion()
         rellenar()
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        setFontSize()
         recogidaInformacion()
         rellenar()
     }
@@ -43,6 +45,14 @@ class ContactDetailsViewController: UIViewController {
     public var arrayFamilia: [Contacto] = []
     public var arrayTrabajo: [Contacto] = []
     public var arrayAmigos: [Contacto] = []
+    public var sizeLetter = 15.0
+    
+    //MARK: STYLE
+    
+    private func setFontSize() {
+        let tamaño = userDefault.object(forKey: "SizeDetail") as? Int
+        self.sizeLetter = CGFloat(tamaño.unsafelyUnwrapped)
+    }
     
     
     //MARK: DATOS
@@ -93,6 +103,11 @@ class ContactDetailsViewController: UIViewController {
             txt_fecha.text = arrayFamilia[idPerson].fechanacimiento
             txt_Apellido.text = arrayFamilia[idPerson].apellidos
             txt_contacto.text = arrayFamilia[idPerson].contacto
+            txt_telefono.font = UIFont(name: "Arial", size: self.sizeLetter)
+            txt_Nombre.font = UIFont(name: "Arial", size: self.sizeLetter)
+            txt_fecha.font = UIFont(name: "Arial", size: self.sizeLetter)
+            txt_Apellido.font = UIFont(name: "Arial", size: self.sizeLetter)
+            txt_contacto.font = UIFont(name: "Arial", size: self.sizeLetter)
             img_src.image = UIImage(systemName: "person")
         case 1:
             txt_telefono.text = arrayTrabajo[idPerson].telefono
@@ -100,6 +115,11 @@ class ContactDetailsViewController: UIViewController {
             txt_fecha.text = arrayTrabajo[idPerson].fechanacimiento
             txt_Apellido.text = arrayTrabajo[idPerson].apellidos
             txt_contacto.text = arrayTrabajo[idPerson].contacto
+            txt_telefono.font = UIFont(name: "Arial", size: self.sizeLetter)
+            txt_Nombre.font = UIFont(name: "Arial", size: self.sizeLetter)
+            txt_fecha.font = UIFont(name: "Arial", size: self.sizeLetter)
+            txt_Apellido.font = UIFont(name: "Arial", size: self.sizeLetter)
+            txt_contacto.font = UIFont(name: "Arial", size: self.sizeLetter)
             img_src.image = UIImage(systemName: "person")
         case 2:
             txt_telefono.text = arrayAmigos[idPerson].telefono
@@ -107,6 +127,11 @@ class ContactDetailsViewController: UIViewController {
             txt_fecha.text = arrayAmigos[idPerson].fechanacimiento
             txt_Apellido.text = arrayAmigos[idPerson].apellidos
             txt_contacto.text = arrayAmigos[idPerson].contacto
+            txt_telefono.font = UIFont(name: "Arial", size: self.sizeLetter)
+            txt_Nombre.font = UIFont(name: "Arial", size: self.sizeLetter)
+            txt_fecha.font = UIFont(name: "Arial", size: self.sizeLetter)
+            txt_Apellido.font = UIFont(name: "Arial", size: self.sizeLetter)
+            txt_contacto.font = UIFont(name: "Arial", size: self.sizeLetter)
             img_src.image = UIImage(systemName: "person")
         default:
             showAlertProblem()
