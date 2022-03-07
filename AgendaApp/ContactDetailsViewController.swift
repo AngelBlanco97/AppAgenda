@@ -50,8 +50,8 @@ class ContactDetailsViewController: UIViewController {
     //MARK: STYLE
     
     private func setFontSize() {
-        let tamaño = userDefault.object(forKey: "SizeDetail") as? Int
-        self.sizeLetter = CGFloat(tamaño.unsafelyUnwrapped)
+        guard let tamaño = userDefault.object(forKey: "SizeDetail") as? Int else {return}
+        self.sizeLetter = CGFloat(tamaño)
     }
     
     

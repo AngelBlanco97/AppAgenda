@@ -23,7 +23,7 @@ class AgendaTableViewController: UITableViewController {
     private var userDefault = UserDefaults.standard
     private var tablaActual = 0
     private var fuente: String = ""
-    private var color = UIColor(named: "Negro")
+    private var color = UIColor(named: "")
     private var sizeList = CGFloat(15)
     private var isTheme = ""
     
