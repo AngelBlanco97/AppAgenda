@@ -1,5 +1,5 @@
 //
-//  LetterViewController.swift
+//  ColorLetterViewController.swift
 //  AgendaApp
 //
 //  Created by Angel Blanco on 6/3/22.
@@ -7,15 +7,16 @@
 
 import UIKit
 
-class LetterViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ColorLetterViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var pickerView: UIPickerView!
-    public let userDefault = UserDefaults.standard
-    public var fuenteActual = "Verdana"
-    
-    private var fuentes = ["Copperplate", "Zapfino", "Thonburi", "Verdana", "TimesNewRomanPSMT", "TamilSangamMN"]
-    
     @IBOutlet weak var txt_prueba: UILabel!
+    @IBOutlet weak var btn_Guardar: UIButton!
+    
+    
+    private var colorSeleccionado = UIColor(named: "Negro")
+    private var colores = ["Negro",  "Azul", "Rojo", "Verde", "Marrón"]
+    let userDefault = UserDefaults.standard
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -23,17 +24,18 @@ class LetterViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return fuentes.count
+        return colores.count
     }
     
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return fuentes[row]
+        return colores[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        txt_prueba.font = UIFont(name: fuentes[row], size: 26)
-        txt_prueba.text = fuentes[row]
+        txt_prueba.textColor = UIColor(named: colores[row])
+        colorSeleccionado = UIColor(named: colores[row])
+        
     }
     
     
@@ -42,30 +44,30 @@ class LetterViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         super.viewDidLoad()
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
-        setLetter()
+        recogeDatos()
+        txt_prueba.textColor = self.colorSeleccionado
         // Do any additional setup after loading the view.
     }
     
-    func setLetter() {
-        guard let font = userDefault.object(forKey: "Fuente") as? String else {return}
-        self.fuenteActual = font
-        txt_prueba.text = font
+    private func recogeDatos() {
+        guard let color = userDefault.object(forKey: "Color") as? String else {return}
+        self.colorSeleccionado = UIColor(named: color)
     }
     
     
-    
-    @IBAction func guardarLetra(_ sender: Any) {
-        let fuente = txt_prueba.font.familyName
-        userDefault.set(fuente, forKey: "Fuente")
-        self.fuenteActual = fuente
+    @IBAction func guardarColor(_ sender: Any) {
+        let color = txt_prueba.textColor
+        let nombre = color!.value(forKey: "name")
+        
+        
+        userDefault.set(nombre, forKey: "Color")
 
         self.navigationController?.popViewController(animated: true)
     }
     
-   
-    
-    
 
+    
+   
     /*
     // MARK: - Navigation
 

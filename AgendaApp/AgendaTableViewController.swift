@@ -23,9 +23,9 @@ class AgendaTableViewController: UITableViewController {
     private var userDefault = UserDefaults.standard
     private var tablaActual = 0
     private var fuente: String = ""
-    private var color = UIColor(named: "")
     private var sizeList = CGFloat(15)
     private var isTheme = ""
+    private var colorSelected = UIColor(named: "Black")
     
     
     // 0 = FAMILIA, 1 = TRABAJO, 2 = AMIGOS
@@ -35,14 +35,15 @@ class AgendaTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyle()
-        setTheme()
+//        setTheme()
         recogidaInformacion()
-       
+        miTabla.reloadData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setStyle()
-        setTheme()
+//        setTheme()
         recogidaInformacion()
         miTabla.reloadData()
     }
@@ -52,37 +53,50 @@ class AgendaTableViewController: UITableViewController {
     //MARK: USERDEFAULTS STYLES
     func setStyle() {
         //SETTING FONT STYLE
-        self.fuente = userDefault.object(forKey: "Fuente") as? String ?? ""
         
-        //SETTING COLOR FONT STYLE
-        let colorSeleccionado = userDefault.object(forKey: "Color") as? String ?? ""
-        self.color = UIColor(named: colorSeleccionado)
+        setFontStyle()
+        
+        
+        //SETTING COLOR FONT STYLE ON TITTLE ONLY
+        setFontcolor()
         
         //SETTING FONT SIZE STYLE
-        let sizeletter = userDefault.object(forKey: "SizeListado") as? CGFloat ?? self.sizeList
-        self.sizeList = CGFloat(sizeletter)
         
+        setFontSize()
         
         //SETTING THEME STYLE
-        let theme = userDefault.object(forKey: "Theme") as? String ?? ""
-        self.isTheme = theme
+//        setTheme()
     }
     
-    func setTheme() {
-        if (self.isTheme == "Modo Claro") {
-            if #available(iOS 13.0, *) {
-                UIApplication.shared.delegate?.window??.overrideUserInterfaceStyle = .light
-            }
-            self.color = UIColor(named: "LetraCelda")
-        }
-        
-        if (self.isTheme == "Modo Oscuro") {
-            if #available(iOS 13.0, *) {
-                UIApplication.shared.delegate?.window??.overrideUserInterfaceStyle = .dark
-            }
-            self.color = UIColor(named: "LetraCelda")
-        }
+    
+    func setFontSize() {
+        guard let sizeletter = userDefault.object(forKey: "SizeListado") as? CGFloat else {return}
+        self.sizeList = CGFloat(sizeletter)
     }
+    
+    func setFontcolor() {
+        guard let colorSeleccionado = userDefault.object(forKey: "Color") as? String else {return}
+        print("El color guardado es: " + colorSeleccionado)
+        self.colorSelected = UIColor(named: colorSeleccionado)
+        let appearance = UINavigationBarAppearance()
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor(named: colorSeleccionado)]
+        navigationItem.standardAppearance = appearance
+        navigationItem.scrollEdgeAppearance = appearance
+    }
+    func setFontStyle() {
+        guard let font = userDefault.object(forKey: "Fuente") as? String else {return}
+        print(font)
+        self.fuente = font
+    }
+    
+//    func setTheme() {
+//        guard let theme = userDefault.object(forKey: "Theme") as? String else {return}
+//        self.isTheme = theme
+//        print("Modo preferido: " + isTheme)
+//
+//
+//        self.color = UIColor(named: "LetraCelda")
+//    }
     
     
     //MARK: DATOS
@@ -185,14 +199,14 @@ class AgendaTableViewController: UITableViewController {
             cell.backgroundColor = UIColor(named: "FondoCelda")
             cell.img.image = UIImage(systemName: "person")
             cell.nombreCompleto.font = UIFont(name: self.fuente, size: self.sizeList)
-            cell.nombreCompleto.textColor = self.color
+            cell.nombreCompleto.textColor = self.colorSelected
             cell.nombreCompleto.text = String(arrayFamilia[indexPath.row].nombre)
             cell.telefono.text = String(arrayFamilia[indexPath.row].telefono)
             cell.telefono.font = UIFont(name: self.fuente , size: self.sizeList)
-            cell.telefono.textColor = self.color
+            cell.telefono.textColor = self.colorSelected
             cell.apellido.text = String(arrayFamilia[indexPath.row].apellidos)
             cell.apellido.font = UIFont(name: self.fuente , size: self.sizeList)
-            cell.apellido.textColor = self.color
+            cell.apellido.textColor = self.colorSelected
         case 1:
             cell.backgroundColor = UIColor(named: "FondoCelda")
             cell.img.image = UIImage(systemName: "person")
@@ -200,11 +214,11 @@ class AgendaTableViewController: UITableViewController {
             cell.telefono.text = String(arrayTrabajo[indexPath.row].telefono)
             cell.apellido.text = String(arrayTrabajo[indexPath.row].apellidos)
             cell.nombreCompleto.font = UIFont(name: self.fuente, size: self.sizeList)
-            cell.nombreCompleto.textColor = self.color
+            cell.nombreCompleto.textColor = self.colorSelected
             cell.telefono.font = UIFont(name: self.fuente, size: self.sizeList)
-            cell.telefono.textColor = self.color
+            cell.telefono.textColor = self.colorSelected
             cell.apellido.font = UIFont(name: self.fuente, size: self.sizeList)
-            cell.apellido.textColor = self.color
+            cell.apellido.textColor = self.colorSelected
         case 2:
             cell.backgroundColor = UIColor(named: "FondoCelda")
             cell.img.image = UIImage(systemName: "person")
@@ -212,11 +226,11 @@ class AgendaTableViewController: UITableViewController {
             cell.telefono.text = String(arrayAmigos[indexPath.row].telefono)
             cell.apellido.text = String(arrayAmigos[indexPath.row].apellidos)
             cell.nombreCompleto.font = UIFont(name: self.fuente, size: self.sizeList)
-            cell.nombreCompleto.textColor = self.color
+            cell.nombreCompleto.textColor = self.colorSelected
             cell.telefono.font = UIFont(name: self.fuente, size: self.sizeList)
-            cell.telefono.textColor = self.color
+            cell.telefono.textColor = self.colorSelected
             cell.apellido.font = UIFont(name: self.fuente , size: self.sizeList)
-            cell.apellido.textColor = self.color
+            cell.apellido.textColor = self.colorSelected
         default:
             return UITableViewCell()
         }

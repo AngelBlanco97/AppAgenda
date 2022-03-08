@@ -19,9 +19,10 @@ class SizeListadoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recogidaDatos()
+        txt_prueba.font = UIFont(name: "Arial", size: CGFloat(Int(self.valueSize)))
         input_size.text = txt_prueba.font.pointSize.description
-        txt_prueba.font = UIFont(name: "Arial", size: 15)
-        stepper.value = 15
+        stepper.value = Double(self.valueSize)
         stepper.maximumValue = 25
         
         // Do any additional setup after loading the view.
@@ -33,7 +34,11 @@ class SizeListadoViewController: UIViewController {
         txt_prueba.font = UIFont(name: "Arial", size: CGFloat(Int(sender.value)))
     }
     
-    
+    func recogidaDatos() {
+        let userDefault = UserDefaults.standard
+        guard let size = userDefault.object(forKey: "SizeListado") as? Int else {return}
+        self.valueSize = size
+    }
     
     @IBAction func guardarSize(_ sender: Any) {
         
