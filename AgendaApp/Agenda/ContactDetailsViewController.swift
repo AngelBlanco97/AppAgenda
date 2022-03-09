@@ -8,7 +8,11 @@
 import UIKit
 
 class ContactDetailsViewController: UIViewController {
-
+    //MARK: VIEW
+    
+    /*
+     Cuando carga la vista, seteamos los estilos configurados del usuario, y recogemos la inforamación que se va a rellenar en la tabla.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         setFontSize()
@@ -18,6 +22,9 @@ class ContactDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    /*
+     Antes de cargar la vista, seteamos los estilos configurados del usuario, y recogemos la inforamación que se va a rellenar en la tabla para asegurar los datos.
+     */
     override func viewDidAppear(_ animated: Bool) {
         setFontSize()
         recogidaInformacion()
@@ -49,13 +56,20 @@ class ContactDetailsViewController: UIViewController {
     public var sizeLetter = 15.0
     public var colorLetter = UIColor(named: "Black")
     
-    //MARK: STYLE
     
+    
+    //MARK: STYLE
+    /*
+     Seteamos el tamaño de la fuente buscando en la configuración del usuario que pueda tener. Si no existe, sale.
+     */
     private func setFontSize() {
         guard let tamaño = userDefault.object(forKey: "SizeDetail") as? Int else {return}
         self.sizeLetter = CGFloat(tamaño)
     }
     
+    /*
+     Seteamos la fuente que el usuario tenga guardada en su configuración. Si no existe, sale.
+     */
     private func setFontColor() {
         guard let color = userDefault.object(forKey: "Color") as? String else {return}
         self.colorLetter = UIColor(named: color)
@@ -71,6 +85,7 @@ class ContactDetailsViewController: UIViewController {
         
         if let data = userDefault.object(forKey: "Agenda") as? Data {
             
+            //Eliminamos los datos que puedan estar en el array para asegurar que no se dupliquen.
             arrayAmigos.removeAll()
             arrayTrabajo.removeAll()
             arrayFamilia.removeAll()
@@ -101,6 +116,11 @@ class ContactDetailsViewController: UIViewController {
         }
     }
     
+    
+    /*
+     Rellenamos los datos según el id del modelo de datos de la tabla que ha sido pulsada. 0 para familia, 1 para trabajo, 2 para amigos.
+     Seteamos los estilos correspondientes que tengamos guardados al buscar en sus preferencias de usuario.
+     */
     public func rellenar() {
         
         switch id {
@@ -162,7 +182,9 @@ class ContactDetailsViewController: UIViewController {
         
     }
     
-    
+    /*
+     Recogemos los valores que se hayan presentado en la vista si el usuario quiere ir a editarlos. Enviando la información a la vista siguiente para que pueda editarlo al gusto. Presentamos la vista de edición.
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "editContact") {
@@ -181,7 +203,9 @@ class ContactDetailsViewController: UIViewController {
     }
     
     
-    
+    /*
+     Si clicka en eliminar, eliminamos los datos según el usuario que haya pulsado (amigo, familia, trabajo) del array privado correspondiente y guardamos con savenewData()
+     */
     @IBAction func eliminarUser(_ sender: Any) {
         switch id {
         case 0:
@@ -199,7 +223,9 @@ class ContactDetailsViewController: UIViewController {
         
     }
     
-    
+    /*
+     Recogemos los datos que esten en los arrays recogidos de las preferencias de usuario, y lo guardamos de nuevo para reescribir la información (con los datos antiguos o nuevos)  Devolvemos al usuario a la vista principal. 
+     */
     private func savenewData() {
         //Creamos un array con los diferentes tipos actualizados
         let contactos: [Contacto] = arrayFamilia + arrayAmigos + arrayTrabajo
@@ -220,14 +246,4 @@ class ContactDetailsViewController: UIViewController {
                 present(alert, animated: true, completion: nil)
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

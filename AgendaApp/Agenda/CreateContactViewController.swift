@@ -9,6 +9,11 @@ import UIKit
 
 class CreateContactViewController: UIViewController {
 
+    //MARK: VIEW
+    
+    /*
+     Cuando la vista cargue, buscamos la informacion que tenga guardada el usuario en sus preferencias, y las asignamos a las variables internas. Creamos los picker asociados a los input (para que cuando clicke en ellos se abran los selectores propios)
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         cargaDatos()
@@ -25,10 +30,6 @@ class CreateContactViewController: UIViewController {
         fechaNacimiento.preferredDatePickerStyle = .wheels
         txt_FechaNacimiento.inputView = fechaNacimiento
         txt_FechaNacimiento.text = formatDate(date: Date())
-        
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     
@@ -50,6 +51,10 @@ class CreateContactViewController: UIViewController {
     @IBOutlet weak var txt_Apellidos: UITextField!
     
     
+    /*
+     Recogemos los datos del usuario de sus contactos.
+     */
+    
     private func cargaDatos() {
         
         //Recogemos los valores de tenga guardados en userdefault de su propia agenda y los decodamos.
@@ -64,10 +69,16 @@ class CreateContactViewController: UIViewController {
         }
     }
     
+    /*
+     En caso de variar los datos del picker, seteamos el input con el valor que quede seleccionado.
+     */
     @objc func nacimientoDateChange(datePicker: UIDatePicker) {
         txt_FechaNacimiento.text = formatDate(date: datePicker.date)
     }
     
+    /*
+     Formateamos el tipo de dato para que sea siempre el mismo y no lo "decida el usuario" si no que utilice el mismo.
+     */
     func formatDate(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMM yyyy"
@@ -75,7 +86,9 @@ class CreateContactViewController: UIViewController {
     }
     
     
-    
+    /*
+     Cuando pulsa el botón creamos un usuario nuevo en su agenda.
+     */
     @IBAction func crearUsuario(_ sender: Any) {
         
         // Recogemos los valores de los textfield de la persona que quiere agregar.
@@ -103,32 +116,34 @@ class CreateContactViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 //Extendemos el controlador para delegar el picker y la informacion del mismo
 extension CreateContactViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    /*
+     Retornamos un componente según la información que queremos que se muestre en nuestro conjunto de datos privado tipo de contacto.
+     */
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
+    /*
+     Devolvemos la cantidad de filas según la cantidad de datos de nuestro conjunto de tipos de contacto
+     */
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return typeContact.count
     }
-    
+    /*
+     Devolvemos el valor del conjunto de datos según la posición de la fila, asignandose y mostrandose así.
+     */
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return typeContact[row]
     }
 
+    /*
+     En caso de variar la posición, seteamos el texto con la información contenida en la fila activa. 
+     */
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         txt_Contacto.text = typeContact[row]
         txt_Contacto.resignFirstResponder()

@@ -106,6 +106,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B3B8C1427D8CE8B00FC459A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0BA5E88C27CFEAF10079A8DC /* Datos.swift */,
+				0B87EEF427D54883007D44E3 /* Secciones.swift */,
+				0B87EEFA27D54EFC007D44E3 /* Objetos.swift */,
+				0B87EEF627D548F2007D44E3 /* DataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0B3B8C1527D8CEB200FC459A /* Agenda */ = {
+			isa = PBXGroup;
+			children = (
+				0BA5E88A27CFE96C0079A8DC /* CeldaAgendaTableViewCell.swift */,
+				0BA5E88827CF9A850079A8DC /* ContactDetailsViewController.swift */,
+				0BA5E88627CF9A600079A8DC /* CreateContactViewController.swift */,
+				0BA5E88427CF978E0079A8DC /* AgendaTableViewController.swift */,
+				0B87EEE027D4E33F007D44E3 /* EditContactViewController.swift */,
+			);
+			path = Agenda;
+			sourceTree = "<group>";
+		};
+		0B3B8C1627D8CEBF00FC459A /* Configuracion */ = {
+			isa = PBXGroup;
+			children = (
+				0B87EEEA27D52CE6007D44E3 /* SizeDetailViewController.swift */,
+				0B87EEEC27D52CF5007D44E3 /* ColorLetterViewController.swift */,
+				0B87EEF227D543DD007D44E3 /* CeldaAjustesTableViewCell.swift */,
+				0B87EEF027D52D11007D44E3 /* ThemeViewController.swift */,
+				0B87EEEE27D52D04007D44E3 /* LetterViewController.swift */,
+				0B87EEE827D527FE007D44E3 /* SizeListadoViewController.swift */,
+				0B87EEF827D54C91007D44E3 /* AjustesTableViewController.swift */,
+			);
+			path = Configuracion;
+			sourceTree = "<group>";
+		};
 		0BA5E84427CF93D00079A8DC = {
 			isa = PBXGroup;
 			children = (
@@ -129,28 +166,15 @@
 		0BA5E84F27CF93D00079A8DC /* AgendaApp */ = {
 			isa = PBXGroup;
 			children = (
+				0B3B8C1627D8CEBF00FC459A /* Configuracion */,
+				0B3B8C1527D8CEB200FC459A /* Agenda */,
+				0B3B8C1427D8CE8B00FC459A /* Models */,
 				0BA5E85027CF93D00079A8DC /* AppDelegate.swift */,
 				0BA5E85227CF93D00079A8DC /* SceneDelegate.swift */,
 				0BA5E85627CF93D00079A8DC /* Main.storyboard */,
-				0B87EEF827D54C91007D44E3 /* AjustesTableViewController.swift */,
-				0B87EEE827D527FE007D44E3 /* SizeListadoViewController.swift */,
-				0B87EEF227D543DD007D44E3 /* CeldaAjustesTableViewCell.swift */,
-				0B87EEF427D54883007D44E3 /* Secciones.swift */,
-				0B87EEFA27D54EFC007D44E3 /* Objetos.swift */,
-				0B87EEF627D548F2007D44E3 /* DataModel.swift */,
-				0B87EEE027D4E33F007D44E3 /* EditContactViewController.swift */,
 				0BA5E85927CF93D10079A8DC /* Assets.xcassets */,
 				0BA5E85B27CF93D10079A8DC /* LaunchScreen.storyboard */,
 				0BA5E85E27CF93D10079A8DC /* Info.plist */,
-				0BA5E88427CF978E0079A8DC /* AgendaTableViewController.swift */,
-				0BA5E88627CF9A600079A8DC /* CreateContactViewController.swift */,
-				0BA5E88827CF9A850079A8DC /* ContactDetailsViewController.swift */,
-				0BA5E88A27CFE96C0079A8DC /* CeldaAgendaTableViewCell.swift */,
-				0BA5E88C27CFEAF10079A8DC /* Datos.swift */,
-				0B87EEEA27D52CE6007D44E3 /* SizeDetailViewController.swift */,
-				0B87EEEC27D52CF5007D44E3 /* ColorLetterViewController.swift */,
-				0B87EEEE27D52D04007D44E3 /* LetterViewController.swift */,
-				0B87EEF027D52D11007D44E3 /* ThemeViewController.swift */,
 			);
 			path = AgendaApp;
 			sourceTree = "<group>";

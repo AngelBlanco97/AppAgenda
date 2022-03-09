@@ -35,7 +35,7 @@ class AgendaTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyle()
-//        setTheme()
+        setTheme()
         recogidaInformacion()
         miTabla.reloadData()
         
@@ -43,7 +43,7 @@ class AgendaTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setStyle()
-//        setTheme()
+        setTheme()
         recogidaInformacion()
         miTabla.reloadData()
     }
@@ -53,27 +53,29 @@ class AgendaTableViewController: UITableViewController {
     //MARK: USERDEFAULTS STYLES
     func setStyle() {
         //SETTING FONT STYLE
-        
         setFontStyle()
-        
-        
+
         //SETTING COLOR FONT STYLE ON TITTLE ONLY
         setFontcolor()
         
         //SETTING FONT SIZE STYLE
-        
         setFontSize()
         
         //SETTING THEME STYLE
-//        setTheme()
+        setTheme()
     }
     
-    
+    /*
+     Recogemos los valores del tamaño de la letra según las preferencias de usuario y las guardamos en nuestra variable interna.
+     */
     func setFontSize() {
         guard let sizeletter = userDefault.object(forKey: "SizeListado") as? CGFloat else {return}
         self.sizeList = CGFloat(sizeletter)
     }
     
+    /*
+     Recogemos los valores del color de la letra según las preferencias de usuario y seteamos los estilos según esa configuración.
+     */
     func setFontcolor() {
         guard let colorSeleccionado = userDefault.object(forKey: "Color") as? String else {return}
         print("El color guardado es: " + colorSeleccionado)
@@ -83,20 +85,26 @@ class AgendaTableViewController: UITableViewController {
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
     }
+    
+    /*
+     Recogemos los valores de la letra según las preferencias de usuario y las seteamos a la variable interna.
+     */
     func setFontStyle() {
         guard let font = userDefault.object(forKey: "Fuente") as? String else {return}
         print(font)
         self.fuente = font
     }
     
-//    func setTheme() {
-//        guard let theme = userDefault.object(forKey: "Theme") as? String else {return}
-//        self.isTheme = theme
-//        print("Modo preferido: " + isTheme)
-//
-//
-//        self.color = UIColor(named: "LetraCelda")
-//    }
+    
+    /*
+     Recogemos los valores del tema según las preferencias de usuario y las seteamos a la variable interna de colores.
+     */
+    func setTheme() {
+        guard let theme = userDefault.object(forKey: "Theme") as? String else {return}
+        self.isTheme = theme
+        print("Modo preferido: " + isTheme)
+        self.colorSelected = UIColor(named: "LetraCelda")
+    }
     
     
     //MARK: DATOS
@@ -137,6 +145,9 @@ class AgendaTableViewController: UITableViewController {
         }
     }
     
+    /*
+     Recoge la información actualizada y las guardamos en las preferencias del usuario de su agenda.
+     */
     private func setNewAgenda() {
         //Creamos un array con los diferentes tipos actualizados
         let contactos: [Contacto] = arrayFamilia + arrayAmigos + arrayTrabajo
@@ -162,8 +173,6 @@ class AgendaTableViewController: UITableViewController {
     
 
     // MARK: - Table view data source
-    
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -191,7 +200,7 @@ class AgendaTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Segun el segment control en el que este, rellenamos los valores segun el el propio array que lo carga.
+        // Segun el segment control en el que este, rellenamos los valores segun el del propio array que lo carga.
         let indexSelected = self.segmentControl.selectedSegmentIndex
         let cell = miTabla.dequeueReusableCell(withIdentifier: "celda") as! CeldaAgendaTableViewCell
         switch indexSelected {
@@ -238,6 +247,9 @@ class AgendaTableViewController: UITableViewController {
         return cell
     }
 
+    /*
+     Seteamos la altura de cada fila en 60
+     */
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }

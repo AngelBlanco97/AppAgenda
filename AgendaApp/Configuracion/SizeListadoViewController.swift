@@ -10,13 +10,21 @@ import UIKit
 class SizeListadoViewController: UIViewController {
     
     
-    
+    //MARK: OUTLETS
     @IBOutlet weak var txt_prueba: UILabel!
     @IBOutlet weak var input_size: UITextField!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var btn_guardar: UIButton!
-    private var valueSize: Int = 15
     
+    //MARK: VARIABLES
+    private var valueSize: Int = 15
+    private let userDefault = UserDefaults.standard
+    
+    //MARK: VIEW
+    
+    /*
+     Recogemos las preferencias de usuario sobre el tamaño de fuente, y lo asignamos a la variable de clase privada, seteamos los estilos con esa información si existiese.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         recogidaDatos()
@@ -24,27 +32,31 @@ class SizeListadoViewController: UIViewController {
         input_size.text = txt_prueba.font.pointSize.description
         stepper.value = Double(self.valueSize)
         stepper.maximumValue = 25
-        
-        // Do any additional setup after loading the view.
     }
     
+    /*
+     Si el valor del stepper cambia, seteamos los estilos con esa configuración y lo asignamos a la variable privada de clase.
+     */
     @IBAction func valueChanged(_ sender: UIStepper) {
         input_size.text = Int(sender.value).description
         self.valueSize = Int(sender.value)
         txt_prueba.font = UIFont(name: "Arial", size: CGFloat(Int(sender.value)))
     }
     
+    /*
+     Recogemos las preferencias de usuario sobre el tamaño de la fuente, si existe se guarda en la variable privada, si no, no continúa.
+     */
     func recogidaDatos() {
-        let userDefault = UserDefaults.standard
         guard let size = userDefault.object(forKey: "SizeListado") as? Int else {return}
         self.valueSize = size
     }
     
+    
+    /*
+     Si el usuario hace la acción en el botón, recogemos los valores y los guardamos en las preferencias de usuario. Devolvemos al usuario a la raiz de la navegación. 
+     */
     @IBAction func guardarSize(_ sender: Any) {
-        
-        
-        let userdefault = UserDefaults.standard
-        userdefault.set(self.valueSize, forKey: "SizeListado")
+        userDefault.set(self.valueSize, forKey: "SizeListado")
         
         self.navigationController?.popViewController(animated: true)
     }

@@ -207,20 +207,13 @@ class EditContactViewController: UIViewController {
         
     }
     
-    
+    /*
+     Cambiamos de pantalla a la principal al llamar a la funcion
+     */
     private func cambioPantalla() {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     
     //Function para presentar una alerta en caso de error o por defecto
