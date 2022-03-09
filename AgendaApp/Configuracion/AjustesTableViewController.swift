@@ -14,13 +14,19 @@ class AjustesTableViewController: UITableViewController {
      Cuando ha cargado la vista seteamos el color del fondo.
      */
     override func viewDidLoad() {
+        setTheme()
         super.viewDidLoad()
         tableView.backgroundColor = .systemGray6
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setTheme()
+    }
+    
     //MARK: VARIABLES
     var sections: [Secciones] = DataModel().obtenerSecciones()
-    
+    private var userDefault = UserDefaults.standard
+    private var isTheme = "Automatico"
     
     /*
      Devolvemos la cantidad de secciones que queremos mostraar de la tabla, en este caso lo recogemos del modelo de datos "Secciones". En ese archivo encontraremos 4 secciones diferentes. (Tamaño, letra, color, y tema)
@@ -78,6 +84,25 @@ class AjustesTableViewController: UITableViewController {
         
         if(vc == "ThemeViewController") {
             performSegue(withIdentifier: "theme", sender: nil)
+        }
+    }
+    
+    
+    func setTheme() {
+        guard let theme = userDefault.object(forKey: "Theme") as? String else {return}
+        self.isTheme = theme
+        if (self.isTheme == "Modo Oscuro") {
+            view.overrideUserInterfaceStyle = .dark
+            navigationController?.overrideUserInterfaceStyle = .dark
+            tabBarController?.overrideUserInterfaceStyle = .dark
+        } else if (self.isTheme == "Modo Claro") {
+            view.overrideUserInterfaceStyle = .light
+            navigationController?.overrideUserInterfaceStyle = .light
+            tabBarController?.overrideUserInterfaceStyle = .light
+        } else {
+            view.overrideUserInterfaceStyle = .unspecified
+            navigationController?.overrideUserInterfaceStyle = .unspecified
+            tabBarController?.overrideUserInterfaceStyle = .unspecified
         }
     }
 }

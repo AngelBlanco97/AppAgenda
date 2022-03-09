@@ -51,6 +51,9 @@ class AgendaTableViewController: UITableViewController {
     
     
     //MARK: USERDEFAULTS STYLES
+    
+   
+    
     func setStyle() {
         //SETTING FONT STYLE
         setFontStyle()
@@ -83,7 +86,7 @@ class AgendaTableViewController: UITableViewController {
         let appearance = UINavigationBarAppearance()
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor(named: colorSeleccionado)]
         navigationItem.standardAppearance = appearance
-        navigationItem.scrollEdgeAppearance = appearance
+        //navigationItem.scrollEdgeAppearance = appearance
     }
     
     /*
@@ -104,6 +107,19 @@ class AgendaTableViewController: UITableViewController {
         self.isTheme = theme
         print("Modo preferido: " + isTheme)
         self.colorSelected = UIColor(named: "LetraCelda")
+        if (isTheme == "Modo Oscuro") {
+            view.overrideUserInterfaceStyle = .dark
+            navigationController?.overrideUserInterfaceStyle = .dark
+            tabBarController?.overrideUserInterfaceStyle = .dark
+        } else if (isTheme == "Modo Claro") {
+            view.overrideUserInterfaceStyle = .light
+            navigationController?.overrideUserInterfaceStyle = .light
+            tabBarController?.overrideUserInterfaceStyle = .light
+        } else {
+            view.overrideUserInterfaceStyle = .unspecified
+            navigationController?.overrideUserInterfaceStyle = .unspecified
+            tabBarController?.overrideUserInterfaceStyle = .unspecified
+        }
     }
     
     

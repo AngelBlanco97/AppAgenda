@@ -16,7 +16,7 @@ class ThemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var btn_guardar: UIButton!
     
     //MARK: VARIABLES
-    private var theme = ["Modo Claro", "Modo Oscuro"]
+    private var theme = ["Modo Claro", "Modo Oscuro", "Automatico"]
     private var themeSelected = ""
     public var userDefault = UserDefaults.standard
     
@@ -28,9 +28,21 @@ class ThemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
      */
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTheme()
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
         // Do any additional setup after loading the view.
+    }
+    
+    
+    // SET THEME
+    /*
+    Buscamos si existe el valor del tema, y lo proyectamos en el texto default.
+     */
+    func setTheme() {
+        guard let theme = userDefault.object(forKey: "Theme") as? String else {return}
+        txt_Theme.text = theme
+        
     }
     
     //MARK: PICKER DELEGATE Y PICKER DATA
@@ -62,6 +74,20 @@ class ThemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         txt_Theme.text = theme[row]
         themeSelected = theme[row]
+        if (self.themeSelected == "Modo Oscuro") {
+            view.overrideUserInterfaceStyle = .dark
+            navigationController?.overrideUserInterfaceStyle = .dark
+            tabBarController?.overrideUserInterfaceStyle = .dark
+        } else if (self.themeSelected == "Modo Claro") {
+            view.overrideUserInterfaceStyle = .light
+            navigationController?.overrideUserInterfaceStyle = .light
+            tabBarController?.overrideUserInterfaceStyle = .light
+        } else {
+            view.overrideUserInterfaceStyle = .unspecified
+            navigationController?.overrideUserInterfaceStyle = .unspecified
+            tabBarController?.overrideUserInterfaceStyle = .unspecified
+        }
+        
     }
     
     /*
